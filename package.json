@@ -1,0 +1,16 @@
+
+  {
+    "name": "towerreact",
+    "version": "1.0.0",
+    "scripts": {
+      "build": "npm run setup:server",
+      "setup:app": "npm run setup:server && npm run setup:client",
+      "setup:client": "cd TowerReact.client && npm i",
+      "setup:server": "cd TowerReact && npm i",
+      "start": "node TowerReact/index.js"
+    },
+    "engines": {
+      "node": "^18.12.1"
+    }
+  }
+  
