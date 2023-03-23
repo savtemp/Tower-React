@@ -8,10 +8,6 @@
     {
       "path": "TowerReact",
       "name": "server"
-    },
-    {
-      "name": "TowerReact",
-      "path": "."
     }
   ],
   "settings": {
