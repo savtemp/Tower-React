@@ -22,9 +22,9 @@ export class TowerEventsController extends BaseController{
       // create an event
       .post('', this.createTowerEvent)
       // edit an event
-      // .put('/:id', this.editEvent)
+      .put('/:id', this.editEvent)
       // delete an event 
-      // .delete('/:id', this.cancelEvent)
+      .delete('/:id', this.cancelEvent)
 
   }
 
@@ -53,6 +53,24 @@ export class TowerEventsController extends BaseController{
     let eventId = req.params.id
     const event = await towerEventsService.getTowerEventById(eventId)
     return res.send(event)
+  } catch (error) {
+    next(error)
+    }
+  }
+
+  async editEvent (req, res, next) {
+  try {
+  
+    return res.send()
+  } catch (error) {
+    next(error)
+    }
+  }
+
+  async cancelEvent (req, res, next) {
+  try {
+  
+    return res.send()
   } catch (error) {
     next(error)
     }
