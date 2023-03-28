@@ -1,8 +1,12 @@
+import { AppState } from "../AppState.js"
+import { api } from "./AxiosService.js"
 
 
 class TowerEventsService{
-  getTowerEvents() {
-    throw new Error('Method not implemented.');
+  async getTowerEvents(url = 'api/events') {
+    AppState.towerEvents = []
+    const res = await api.get(url)
+    console.log('[GETTING TOWER EVENTS]', res.data);
   }
 }
 
