@@ -60,8 +60,11 @@ export class TowerEventsController extends BaseController{
 
   async editEvent (req, res, next) {
   try {
-  
-    return res.send()
+    req.body.creatorId = req.userInfo.id
+    let eventData = req.body
+    let eventId = req.params.id
+    const updatedEvent = await towerEventsService.editEvent(eventId,eventData)
+    return res.send(updatedEvent)
   } catch (error) {
     next(error)
     }
@@ -69,8 +72,10 @@ export class TowerEventsController extends BaseController{
 
   async cancelEvent (req, res, next) {
   try {
-  
-    return res.send()
+    let userId = req.userInfo.id
+    let eventId = req.params.id
+    const canceledEvent = await towerEventsService.cancelEvent(eventId, userId)
+    return res.send(canceledEvent)
   } catch (error) {
     next(error)
     }
