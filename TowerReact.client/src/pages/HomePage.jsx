@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import { observer } from 'mobx-react-lite';
+import React, { useEffect } from 'react';
+import { AppState } from '../AppState.js';
+import { towerEventsService } from '../services/TowerEventsService.js';
+import Pop from '../utils/Pop.js';
 
-export default function HomePage() {
-  const [count, setCount] = useState(0)
+function HomePage() {
+
+  async function getTowerEvents(){
+    try {
+      await towerEventsService.getTowerEvents()
+    } catch (error) {
+      Pop.error(error.message)
+    }
+  }
+
+  const towerEvents = (AppState.towerEvents.map(towerEvent => {
+    return(
+      <div key={towerEvent.id}>
+        {/* TowerEvent card goes here */}
+      </div>
+    )
+  }))
+
+  useEffect(() => {
+    getTowerEvents()
+  }, [])
 
   return (
-    <div className="home-page">
-      <div className="container my-3">
-        <div className="row">
-          <div className="col-4">
-            <div className="card">
-              <div className="card-body">
-                <button className="btn btn-success my-1" onClick={() => setCount((count) => count + 1)}>
-                  count is {count}
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+
+    <div className="HomePage">
+
     </div>
   )
+
+
 }
+export default observer(HomePage)
