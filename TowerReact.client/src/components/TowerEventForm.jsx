@@ -1,6 +1,8 @@
-import { observer } from 'mobx-react-lite';
+
+import { observer } from 'mobx-react';
 import React from 'react';
 import { AppState } from '../AppState.js';
+import { TowerEvent } from '../models/TowerEvent.js';
 import { towerEventsService } from '../services/TowerEventsService.js';
 import { BindEditable } from '../utils/FormHandler.js';
 import { logger } from '../utils/Logger.js';
@@ -9,7 +11,7 @@ import Pop from '../utils/Pop.js';
 function TowerEventForm() {
 
 
-  const editable = {...AppState.towerEvents}
+  const editable = {...AppState.towerEvent || new TowerEvent({})}
   const bindEditable = BindEditable(editable)
 
   async function handleSubmit(){
@@ -53,7 +55,7 @@ function TowerEventForm() {
 
         <div>
           <label htmlFor="category">Category</label>
-          <select required className='form-control' name="" id="" defaultValue={editable.category} onChange={bindEditable}>
+          <select required className='form-control' name="" id="" defaultValue={editable.type} onChange={bindEditable}>
             <option value="concert">Concert</option>
             <option value="convention">Convention</option>
             <option value="sport">Sport</option>
