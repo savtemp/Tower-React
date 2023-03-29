@@ -3,6 +3,9 @@ import { api } from "./AxiosService.js"
 
 
 class TowerEventsService{
+  createEvent(editable) {
+    throw new Error('Method not implemented.');
+  }
   async getTowerEvents() {
     AppState.towerEvents = []
     const res = await api.get(`api/events`)
