@@ -8,8 +8,8 @@ class TowerEventsService{
     const res = await api.post('api/events', towerEventData)
     console.log('[CREATING AN EVENT]', res.data);
     let newEvent = new TowerEvent(res.data)
-    // NOTE this throws an mobx error 
-    // AppState.towerEvents.unshift(newEvent)
+    // FIXME this throws an mobx error but it will work
+    AppState.towerEvents.push(newEvent)
     return newEvent
   }
 
@@ -17,6 +17,7 @@ class TowerEventsService{
     AppState.towerEvents = []
     const res = await api.get(`api/events`)
     console.log('[GETTING TOWER EVENTS]', res.data);
+    AppState.towerEvents = res.data.map(towerEvent => new TowerEvent(towerEvent))
   }
 }
 
