@@ -2,6 +2,7 @@ import { observer } from 'mobx-react-lite';
 import React, { useEffect } from 'react';
 import { AppState } from '../AppState.js';
 import TowerEventCard from '../components/TowerEventCard.jsx';
+import TowerEventForm from '../components/TowerEventForm.jsx';
 import { towerEventsService } from '../services/TowerEventsService.js';
 import Pop from '../utils/Pop.js';
 
@@ -31,6 +32,9 @@ function HomePage() {
   return (
 
     <div className="row HomePage">
+      <div className='col-md-10'>
+        <TowerEventForm /> 
+      </div>
       <div className='col-md-3'>
         {towerEvents}
       </div>

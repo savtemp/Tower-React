@@ -27,48 +27,48 @@ function TowerEventForm() {
     <div className="TowerEventForm card">
       <form action="" className='card-body' onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="">Name</label>
+          <label htmlFor="name">Name</label>
           <input required type="text" className='form-control' id='name' name='name' placeholder='Event Name' defaultValue={editable.name} onChange={bindEditable} />
         </div>
 
         <div>
-          <label htmlFor="">Cover Image</label>
-          <input type="url" />
+          <label htmlFor="coverImg">Cover Image</label>
+          <input required type="url" className='form-control' id='coverImg' name='coverImg' placeholder='Add an Event Image' defaultValue={editable.coverImg} onChange={bindEditable} />
         </div>
 
         <div>
-          <label htmlFor="">Start Date</label>
-          <input type="date" name="" id="" />
+          <label htmlFor="startDate">Start Date</label>
+          <input required type="date" name="startDate" id="startDate" className='form-control' defaultValue={editable.startDate} onChange={bindEditable} />
         </div>
 
         <div>
-          <label htmlFor="">Location</label>
-          <input type="text" name="" id="" />
+          <label htmlFor="location">Location</label>
+          <input required type="text" className='form-control' name="location" id="location" placeholder='Event Location' defaultValue={editable.location} onChange={bindEditable} />
         </div>
 
         <div>
-          <label htmlFor="">Capacity</label>
-          <input type="number" />
+          <label htmlFor="capacity">Capacity</label>
+          <input required type="number" className='form-control' name='capacity' id='capacity' defaultValue={editable.capacity} onChange={bindEditable} />
         </div>
 
         <div>
-          <label htmlFor="">Category</label>
-          <select name="" id="">
-            <option value="">Concert</option>
-            <option value="">Convention</option>
-            <option value="">Sport</option>
-            <option value="">Digital</option>
-            <option value="">Misc.</option>
+          <label htmlFor="category">Category</label>
+          <select required className='form-control' name="" id="" defaultValue={editable.category} onChange={bindEditable}>
+            <option value="concert">Concert</option>
+            <option value="convention">Convention</option>
+            <option value="sport">Sport</option>
+            <option value="digital">Digital</option>
+            <option value="misc">Misc.</option>
           </select>
         </div>
 
         <div>
-          <label htmlFor="">Description</label>
-          <textarea name="" id="" cols="30" rows="10"></textarea>
+          <label htmlFor="description">Description</label>
+          <textarea className='form-control' name="description" id="description" placeholder='Tell us about the event...' defaultValue={editable.description} onChange={bindEditable}></textarea>
         </div>
 
         <div>
-          <button>Submit</button>
+          <button type='button' className='btn btn-success' onClick={handleSubmit}>Submit</button>
         </div>
       </form>
     </div>
