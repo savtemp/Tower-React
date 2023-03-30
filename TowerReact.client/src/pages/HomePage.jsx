@@ -33,6 +33,19 @@ function HomePage() {
   return (
 
     <div className="row HomePage">
+      <div className="col-md-10">
+        <div className="row">
+          <div className="col-md-6 text-dark">
+            <h4>Get ahead of the scalpers.</h4>
+            <h4>Reserve your seats now</h4>
+            <h4>with real events for real people.</h4>
+          </div>
+          <div className="col-md-6">
+            <img src="" alt="" />
+          </div>
+        </div>
+      </div>
+
       <div className='col-md-10'>
         <TowerEventForm /> 
       </div>
