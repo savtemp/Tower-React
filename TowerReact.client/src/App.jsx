@@ -1,6 +1,8 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import { Navbar } from './components/Navbar.jsx'
+import Modal from './components/Modal.jsx'
+import TowerEventForm from './components/TowerEventForm.jsx'
 
 
 export function App() {
@@ -21,7 +23,7 @@ export function App() {
             <h5 className='m-0 mt-1'>Create your own event.</h5>
           </div>
           <div className="col-md-3">
-            <button className='btn btn-outline-light'>Create Event</button>
+            <button className='btn btn-outline-light' data-bs-toggle="modal" data-bs-target="#createEventModal">Create Event</button>
           </div>
         </div>
 
@@ -50,6 +52,13 @@ export function App() {
           </div>
         </div>
       </footer>
+
+      {/* <Modal /> */}
+
+      <Modal modalId='createEventModal' />
+
+      {/* NOTE bring in the same modal component with a different ID if I were to have another modal */}
+      {/* <Modal modalId='' /> */}
 
     </div>
   )
