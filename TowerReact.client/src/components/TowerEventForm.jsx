@@ -69,7 +69,7 @@ function TowerEventForm() {
           <textarea className='form-control' name="description" id="description" placeholder='Tell us about the event...' defaultValue={editable.description} onChange={bindEditable}></textarea>
         </div>
 
-        <div>
+        <div className='text-end p-2'>
           <button type='button' className='btn btn-success' onClick={handleSubmit}>Submit</button>
         </div>
       </form>
