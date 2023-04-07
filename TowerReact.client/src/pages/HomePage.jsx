@@ -51,14 +51,14 @@ function HomePage() {
 
           <div className="row justify-content-center p-4">
             <div className="col-md-10">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-evenly">
                 {/* <div className="col-md-2"> */}
-                  <button className='btn bg-primary rounded-pill'>All Events Near You</button> 
-                  <button className='btn bg-primary rounded-pill'>Misc</button>
-                  <button className='btn bg-primary rounded-pill'>Concerts</button>
-                  <button className='btn bg-primary rounded-pill'>Hone Your Craft</button>
-                  <button className='btn bg-primary rounded-pill'>Sports</button>
-                  <button className='btn bg-primary rounded-pill'>Online Events</button>
+                  <button className='btn bg-primary rounded-pill p-2'>All Events Near You</button> 
+                  <button className='btn bg-primary rounded-pill p-2'>Misc</button>
+                  <button className='btn bg-primary rounded-pill p-2'>Concerts</button>
+                  <button className='btn bg-primary rounded-pill p-2'>Hone Your Craft</button>
+                  <button className='btn bg-primary rounded-pill p-2'>Sports</button>
+                  <button className='btn bg-primary rounded-pill p-2'>Online Events</button>
                 {/* </div> */}
               </div>
             </div>
