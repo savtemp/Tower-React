@@ -1,3 +1,4 @@
+import { makeAutoObservable } from "mobx"
 
 
 export class TowerEvent {
@@ -11,5 +12,9 @@ export class TowerEvent {
     this.startDate = new Date(data.startDate).toDateString()
     this.isCanceled = data.isCanceled
     this.type = data.type
+    this.creator = data.creator
+    this.creatorId = data.creatorId
+
+    makeAutoObservable(this)
   }
 }

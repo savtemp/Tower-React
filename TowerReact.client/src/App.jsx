@@ -19,12 +19,12 @@ export function App() {
 
       <footer className="container-fluid bg-dark text-light p-3 ">
         <div className='row border-bottom p-3'>
-          <div className='col-md-3'>
+          {/* <div className='col-md-3'>
             <h5 className='m-0 mt-1'>Create your own event.</h5>
-          </div>
-          <div className="col-md-3">
+          </div> */}
+          {/* <div className="col-md-3">
             <button className='btn btn-outline-light' data-bs-toggle="modal" data-bs-target="#createEventModal">Create Event</button>
-          </div>
+          </div> */}
         </div>
 
         <div className="row p-3">
@@ -43,12 +43,14 @@ export function App() {
         </div>
 
         <div className="row">
+          <div className="col-md-12">
           <p>Follow Us</p>
           <div className='d-flex'>
             <i className='mdi mdi-square'></i>
             <i className='mdi mdi-square'></i>
             <i className='mdi mdi-square'></i>
             <i className='mdi mdi-square'></i>
+          </div>
           </div>
         </div>
       </footer>

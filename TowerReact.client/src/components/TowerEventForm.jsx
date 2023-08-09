@@ -11,14 +11,20 @@ import Pop from '../utils/Pop.js';
 function TowerEventForm() {
 
 
-  const editable = {...AppState.towerEvent || new TowerEvent({})}
+  let editable = {}
   const bindEditable = BindEditable(editable)
+
+  const types = ['concert', 'convention', 'sport', 'digital', 'misc']
+  const options = types.map(type => {
+    return (<option key={type}>{type}</option>)
+  })
 
   async function handleSubmit(){
     try {
       window.event?.preventDefault()
       logger.log({editable})
       await towerEventsService.createEvent(editable)
+      editable = new TowerEvent({})
     } catch (error) {
       Pop.error(error)
     }
@@ -55,12 +61,9 @@ function TowerEventForm() {
 
         <div>
           <label htmlFor="category">Category</label>
-          <select required className='form-control' name="" id="" defaultValue={editable.type} onChange={bindEditable}>
-            <option value="concert">Concert</option>
-            <option value="convention">Convention</option>
-            <option value="sport">Sport</option>
-            <option value="digital">Digital</option>
-            <option value="misc">Misc.</option>
+          <select required className='form-control' name="type" id="type" defaultValue={editable.type} onChange={bindEditable}>
+            <option>Select an Event Type</option>
+            {options}
           </select>
         </div>
 
@@ -70,7 +73,7 @@ function TowerEventForm() {
         </div>
 
         <div className='text-end p-2'>
-          <button type='button' className='btn btn-success' onClick={handleSubmit}>Submit</button>
+          <button type='submit' className='btn btn-success' >Submit</button>
         </div>
       </form>
     </div>
