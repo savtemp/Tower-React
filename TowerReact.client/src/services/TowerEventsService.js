@@ -36,7 +36,7 @@ class TowerEventsService {
   async cancelTowerEvent(eventId) {
     const res = await api.delete(`api/events/${eventId}`)
     // @ts-ignore
-    AppState.activeTowerEvent.isCanceled = true
+    AppState.towerEvent.isCanceled = true
     // logger.log('[BEFORE CANCEL]', AppState.activeTowerEvent?.isCanceled)
   }
 }

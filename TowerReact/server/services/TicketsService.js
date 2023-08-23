@@ -13,7 +13,7 @@ class TicketsService {
       throw new BadRequest('You cannot purchase a ticket for a canceled event.')
     }
     const ticket = await dbContext.Tickets.create(ticketData)
-    await ticket.populate('profile event')
+    await ticket.populate('profile')
     return ticket
   }
 
@@ -25,7 +25,7 @@ class TicketsService {
 
   async getEventTickets(eventId) {
     // send the eventTickets request to db, find all tickets connected to the event using the eventId object we passed in as param (make sure it matches model). Then populate the profile onto the tickets (not the event because we already have the event details)
-    const eventTickets = await dbContext.Tickets.find({ eventId }).populate('profile')
+    const eventTickets = await dbContext.Tickets.find({ eventId }).populate('profile event')
     return eventTickets
   }
 

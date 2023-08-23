@@ -7,6 +7,8 @@ import { AppState } from '../AppState.js';
 import CommentCard from '../components/CommentCard.jsx';
 import CommentForm from '../components/CommentForm.jsx';
 import TowerEventDetailsCard from '../components/TowerEventDetailsCard.jsx';
+import { ticketsService } from '../services/TicketsService.js';
+import TicketCard from '../components/TicketCard.jsx';
 
 
 function TowerEventDetails() {
@@ -29,6 +31,14 @@ function TowerEventDetails() {
     }
   }
 
+  async function getTickets(){
+    try {
+      await ticketsService.getTickets(id)
+    } catch (error) {
+      Pop.error(error)
+    }
+  }
+
   const comments = AppState.comments.map(c => {
     return (
       <div className="col-10" key={c.id}>
@@ -37,9 +47,18 @@ function TowerEventDetails() {
     )
   })
 
+  const tickets = AppState.tickets.map(t =>{
+    return (
+      <div className='col-md-2 me-2' key={t.id}>
+        <TicketCard ticket={t} />
+      </div>
+    )
+  })
+
   useEffect(() => {
     getTowerEventById(),
-    getCommentsByEventId()
+    getCommentsByEventId(),
+    getTickets()
   }, [])
 
   return (
@@ -55,6 +74,9 @@ function TowerEventDetails() {
         <section className='row justify-content-center mb-3'>
           <div className="col-md-10">
             <h4><b>Attendees</b></h4>
+            <div className="row">
+              {tickets}
+            </div>
           </div>
         </section>
 

@@ -23,7 +23,7 @@ function TowerEventForm() {
     try {
       window.event?.preventDefault()
       logger.log({editable})
-      await towerEventsService.createEvent(editable)
+      await towerEventsService.createTowerEvent(editable)
       editable = new TowerEvent({})
     } catch (error) {
       Pop.error(error)

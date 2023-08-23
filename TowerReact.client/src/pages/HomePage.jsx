@@ -20,7 +20,7 @@ function HomePage() {
 
   const towerEvents = (AppState.towerEvents.map(towerEvent => {
     return(
-      <div key={towerEvent.id}>
+      <div className='col-md-4 mb-4' key={towerEvent.id}>
         {/* TowerEvent card goes here */}
         <TowerEventCard towerEvent={towerEvent} />
       </div>
@@ -109,13 +109,11 @@ function HomePage() {
             </div>
           </div>
 
-          <div className="row justify-content-center">
+          <div className="row justify-content-center mb-4">
             <div className='col-md-10'>
               <h2 className='pb-3'><b>Upcoming events</b></h2> 
-              <div className="row mb-5">
-                <div className='col-md-3'>
+              <div className="row">
                   {towerEvents}
-                </div>
               </div>
             </div>
           </div>
